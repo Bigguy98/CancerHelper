@@ -1,0 +1,143 @@
+<table class="table">
+
+    <tbody style="width: 50%;">
+
+      <tr>
+
+        <td class="title" style="width: 5%;">Giới tính</td>
+        <td style="width: 35%;">
+          <select [(ngModel)]="gender" class="form-control" style="width: 30%;">
+            <option value="1">Nam</option>
+            <option value="0">Nữ</option>
+          </select>
+        </td>
+
+        <td class="title" style="width: 5%;">Tuổi</td>
+        <td style="width: 35%;">
+          <input [(ngModel)]="age" class="form-control" type="number" id="age" style="width:30%" type="number" max="100" min="10">
+        </td>
+
+      </tr>
+
+      <tr>
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="smoking" type="checkbox" class="custom-control-input"  style="width: 90%;" id="smoking">
+           <label class="custom-control-label" for="smoking">Hút thuốc </label>
+         </div>
+        </td>
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="yellowFinger" type="checkbox" class="custom-control-input"  style="width: 90%;" id="yellowFinger">
+           <label class="custom-control-label" for="yellowFinger">Ngón tay màu vàng</label>
+         </div>
+        </td>
+       </tr>
+
+      <tr>
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="anxiety" type="checkbox" class="custom-control-input"  style="width: 90%;" id="anxiety">
+           <label class="custom-control-label" for="anxiety">Hay lo lắng</label>
+         </div>
+        </td>
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="pressure" type="checkbox" class="custom-control-input"  style="width: 90%;" id="pressure">
+           <label class="custom-control-label" for="pressure">Stress, áp lực</label>
+         </div>
+        </td>
+       </tr>
+ 
+
+       <tr>
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="chronicDisease"  type="checkbox" class="custom-control-input"  style="width: 90%;" id="chronicDisease">
+           <label class="custom-control-label" for="chronicDisease">Bệnh mãn tính</label>
+         </div>
+        </td>
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="fatigue" type="checkbox" class="custom-control-input"  style="width: 90%;" id="fatigue">
+           <label class="custom-control-label" for="fatigue">Thường xuyên mệt mỏi</label>
+         </div>
+        </td>
+       </tr>
+ 
+
+       <tr>
+          <td colspan="2">
+          <div class="custom-control custom-checkbox">
+            <input [(ngModel)]="allergy" type="checkbox" class="custom-control-input"  style="width: 90%;" id="allergy">
+            <label class="custom-control-label" for="allergy">Dị ứng</label>
+          </div>
+          </td>
+  
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="wheezing" type="checkbox" class="custom-control-input"  style="width: 90%;" id="wheezing">
+           <label class="custom-control-label" for="wheezing">Thở khò khè</label>
+         </div>
+        </td>
+       </tr>
+ 
+
+       <tr>
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="alcohol" type="checkbox" class="custom-control-input"  style="width: 90%;" id="alcohol">
+           <label class="custom-control-label" for="alcohol">Sử dụng bia, rượu</label>
+         </div>
+        </td>
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input  [(ngModel)]="coughing" type="checkbox" class="custom-control-input"  style="width: 90%;" id="coughing">
+           <label class="custom-control-label" for="coughing">Ho</label>
+         </div>
+        </td>
+       </tr>
+
+       <tr>
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="shortnessBreath" type="checkbox" class="custom-control-input"  style="width: 90%;" id="shortnessBreath">
+           <label class="custom-control-label" for="shortnessBreath">Thở gấp</label>
+         </div>
+        </td>
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="swallowDif" type="checkbox" class="custom-control-input"  style="width: 90%;" id="swallowDif">
+           <label class="custom-control-label" for="swallowDif">Khó nuốt</label>
+         </div>
+        </td>
+       </tr>
+
+      <tr>
+       
+ 
+        <td colspan="2">
+         <div class="custom-control custom-checkbox">
+           <input [(ngModel)]="painChess" type="checkbox" class="custom-control-input"  style="width: 90%;" id="painChess">
+           <label class="custom-control-label" for="painChess">Tức ngực</label>
+         </div>
+        </td>
+       </tr>
+       
+       
+      <tr>
+        <td colspan="4">
+          <button class="btn btn-danger" style="margin-left: 40%;">Cancel</button>
+          <button class="btn btn-primary" style="margin-left: 20px;"  
+          (click)="submit()">Submit</button>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
