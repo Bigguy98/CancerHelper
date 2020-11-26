@@ -11,6 +11,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { DemoMaterialModule } from './layouts/material-module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { Overlay, OverlayContainer, ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 const routes: Routes = [
@@ -38,9 +40,15 @@ const routes: Routes = [
     BrowserAnimationsModule,
     DemoMaterialModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 5000,
+      positionClass: "toast-center-center"
+    })
   ],
-  providers: [],
+  providers: [ToastrService, Overlay, OverlayContainer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
