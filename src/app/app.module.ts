@@ -13,6 +13,7 @@ import { DemoMaterialModule } from './layouts/material-module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { Overlay, OverlayContainer, ToastrModule, ToastrService } from 'ngx-toastr';
+import { DauhieunhanbietComponent } from './content/static/dauhieunhanbiet/dauhieunhanbiet.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "predict",
     component: PredictFormComponent
+  },
+  {
+    path: "info/dauhieunhanbiet",
+    component: DauhieunhanbietComponent
   }
 ];
 
@@ -32,7 +37,8 @@ const routes: Routes = [
     HeaderComponent,
     NavItemComponent,
     PredictFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    DauhieunhanbietComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -22,7 +22,7 @@ export class AppComponent {
       {
         "value": "Dashboard",
         'path': ''
-      }
+      }   
     ]
   }
 
@@ -37,6 +37,10 @@ export class AppComponent {
       {
         "value": "Lymp node",
         'path': ''
+      },
+      {
+        "value": "Dấu hiệu nhận biết bệnh",
+        'path': 'info/dauhieunhanbiet'
       }
     ]
   }
