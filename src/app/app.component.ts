@@ -31,16 +31,24 @@ export class AppComponent {
     "parent": "Infomation",
     "childs": [
       {
-        "value": "Lung cancer",
-        'path': ''
-      },
-      {
-        "value": "Lymp node",
-        'path': ''
+        "value": "Hiểu thêm về ung thư",
+        'path': 'info/ungthu'
       },
       {
         "value": "Dấu hiệu nhận biết bệnh",
         'path': 'info/dauhieunhanbiet'
+      },
+      {
+        "value": "Hiểu rõ hơn về ung thư phổi",
+        'path': 'info/ungthuphoi'
+      },
+      {
+        "value": "Hạch bạch huyết",
+        'path': 'info/hachbachhuyet'
+      },
+      {
+        "value": "Lý do sưng hạch bạch huyết",
+        'path': 'info/lydosunghbh'
       }
     ]
   }

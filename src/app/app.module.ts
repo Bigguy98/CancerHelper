@@ -14,6 +14,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { Overlay, OverlayContainer, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DauhieunhanbietComponent } from './content/static/dauhieunhanbiet/dauhieunhanbiet.component';
+import { HachbachhuyetComponent } from './content/static/hachbachhuyet/hachbachhuyet.component';
+import { LydosunghbhComponent } from './content/static/lydosunghbh/lydosunghbh.component';
+import { UngthuphoiComponent } from './content/static/ungthuphoi/ungthuphoi.component';
+import { UngthuComponent } from './content/static/ungthu/ungthu.component';
 
 
 const routes: Routes = [
@@ -28,6 +32,22 @@ const routes: Routes = [
   {
     path: "info/dauhieunhanbiet",
     component: DauhieunhanbietComponent
+  },
+  {
+    path: "info/hachbachhuyet",
+    component: HachbachhuyetComponent
+  },
+  {
+    path: "info/lydosunghbh",
+    component: LydosunghbhComponent
+  },
+  {
+    path: "info/ungthuphoi",
+    component: UngthuphoiComponent
+  },
+  {
+    path: "info/ungthu",
+    component: UngthuComponent
   }
 ];
 
@@ -38,7 +58,11 @@ const routes: Routes = [
     NavItemComponent,
     PredictFormComponent,
     DashboardComponent,
-    DauhieunhanbietComponent
+    DauhieunhanbietComponent,
+    HachbachhuyetComponent,
+    LydosunghbhComponent,
+    UngthuphoiComponent,
+    UngthuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
