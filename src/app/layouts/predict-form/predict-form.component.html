@@ -1,19 +1,19 @@
 <div style="background-color: #e2d8d8; height: 100%;">
   <table class="table">
 
-    <tbody style="width: 50%;">
+    <tbody >
 
       <tr>
 
-        <td class="title" style="width: 5%;">Giới tính</td>
-        <td style="width: 35%;">
+        <td class="title" style="width: 10%;   padding-left: 30px;">Giới tính</td>
+        <td style="width: 30%;">
           <select [(ngModel)]="gender" class="form-control" style="width: 30%;">
             <option value="M">Nam</option>
             <option value="F">Nữ</option>
           </select>
         </td>
 
-        <td class="title" style="width: 5%;">Tuổi</td>
+        <td class="title" style="width: 5%; padding-left: 35px;">Tuổi</td>
         <td style="width: 35%;">
           <input [(ngModel)]="age" class="form-control" type="number" id="age" style="width:30%" type="number" max="100" min="10">
         </td>
@@ -130,15 +130,22 @@
         </td>
        </tr>
        
-       
       <tr>
+       
+ 
         <td colspan="4">
           <button class="btn btn-danger" style="margin-left: 40%;">Cancel</button>
           <button class="btn btn-primary" style="margin-left: 20px;"  
           (click)="submit()">Submit</button>
         </td>
-      </tr>
-
+       </tr>
+       
+     <tr>
+       <td colspan="4"></td>
+     </tr>
+     <tr>
+      <td colspan="4"></td>
+    </tr>
     </tbody>
 
   </table>

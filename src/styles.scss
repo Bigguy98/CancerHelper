@@ -9,9 +9,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
-// .body {
-//     height: 100%;
-// }
+.body {
+    height: 100%;
+}
 .sidenav {
     position: fixed;
     top: 64px;
@@ -123,5 +123,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-drawer-content{
     top: 64px;
-    padding: 0px 10px 0px 20px;
 }
