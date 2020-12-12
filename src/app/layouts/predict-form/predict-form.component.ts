@@ -33,6 +33,10 @@ export class PredictFormComponent implements OnInit {
   }
 
   submit(): void {
+    if (!this.age) {
+      this.toastr.warning("Bạn chưa nhập tuổi!", "Warning message")
+      return;
+    }
     const data = Array.of(
       this.gender,
       this.age,

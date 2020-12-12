@@ -32,38 +32,40 @@ export class DashboardComponent implements OnInit {
             type: 'column'
         },
         title: {
-            text: 'Monthly Average Rainfall'
+            text: 'Average survival month of lung cancer patients'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: 'Source: SEER Data'
         },
         xAxis: {
-            categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
+            categories: [ // age ranges
+                '20-24',
+                '25-29',
+                '30-34',
+                '35-39',
+                '40-44',
+                '45-49',
+                '50-54',
+                '55-59',
+                '60-64',
+                '65-69',
+                '70-74',
+                '75-79',
+                '80-84',
+                '85-89'
             ],
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: 'Survival months'
             }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} months</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -75,21 +77,12 @@ export class DashboardComponent implements OnInit {
             }
         },
         series: [{
-            name: 'Tokyo',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            name: 'Male',
+            data: [20.96, 13.42, 15.32, 12.55, 14.94, 13.72, 13.44, 13.33, 13.01, 12.81, 12.03, 10.96, 9.09, 6.59]
     
         }, {
-            name: 'New York',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-    
-        }, {
-            name: 'London',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-    
-        }, {
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-    
+            name: 'Female',
+            data: [10.85, 19.75, 16.37, 18.46, 17.45, 18.2, 16.7, 16.77, 16.85, 16.55, 14.67, 13.05, 10.82, 7.56]
         }]
     }
     Highcharts.chart("container", option); // container is the id of figure component
