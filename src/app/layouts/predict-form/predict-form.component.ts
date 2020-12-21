@@ -54,7 +54,7 @@ export class PredictFormComponent implements OnInit {
       this.swallowDif ? 2 : 1,
       this.painChess ? 2 : 1);
 
-    this.commonService.getPrediction(data.join(","), 2).subscribe((response: any) => {
+    this.commonService.getPrediction(data.join(",")).subscribe((response: any) => {
         this.toastr.success(response.body.message, 'Prediction result!');
     },() => {
       console.error();

@@ -18,6 +18,8 @@ import { HachbachhuyetComponent } from './content/static/hachbachhuyet/hachbachh
 import { LydosunghbhComponent } from './content/static/lydosunghbh/lydosunghbh.component';
 import { UngthuphoiComponent } from './content/static/ungthuphoi/ungthuphoi.component';
 import { UngthuComponent } from './content/static/ungthu/ungthu.component';
+import { SurvivalMonthComponent } from './layouts/statistic/survival-month/survival-month.component';
+import { DeadRateComponent } from './layouts/statistic/dead-rate/dead-rate.component';
 
 
 const routes: Routes = [
@@ -48,7 +50,16 @@ const routes: Routes = [
   {
     path: "info/ungthu",
     component: UngthuComponent
+  },
+  {
+    path: "statistis/sv",
+    component: SurvivalMonthComponent
+  },
+  {
+    path: "statistis/dr",
+    component: DeadRateComponent
   }
+
 ];
 
 @NgModule({
@@ -62,7 +73,9 @@ const routes: Routes = [
     HachbachhuyetComponent,
     LydosunghbhComponent,
     UngthuphoiComponent,
-    UngthuComponent
+    UngthuComponent,
+    SurvivalMonthComponent,
+    DeadRateComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

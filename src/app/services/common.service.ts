@@ -7,12 +7,17 @@ import { Observable, observable } from 'rxjs';
     providedIn: "root"
 })
 export class CommonService {
+
     constructor(private http: HttpClient) {
     }
 
 
-    getPrediction(data: any, option: number): Observable<HttpResponse<any>> {
-        return this.http.get<any>(`/api/predict?data=${data}&option=${option}`, { observe: "response"});
+    getPrediction(data: any): Observable<HttpResponse<any>> {
+        return this.http.get<any>(`py/api/predict?data=${data}`, { observe: "response"});
+    }
+
+    getStatistic(type: string): Observable<HttpResponse<any>> {
+        return this.http.get<any>(`py/api/stat?type=${type}`, { observe: "response"});
     }
 
 }

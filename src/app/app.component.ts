@@ -13,22 +13,31 @@ export class AppComponent {
   opened: boolean = false;
 
   tools = {
-    "parent": "Tools",
+    "parent": "Công cụ",
     "childs": [
       {
-        "value": "Prediction",
+        "value": "Dự đoán bệnh",
         'path': 'predict'
+      } 
+    ]
+  }
+
+  statistic = {
+    "parent": "Thống kê",
+    "childs": [
+      {
+        "value": "Tháng sống sót",
+        'path': 'statistis/sv'
       },
       {
-        "value": "Dashboard",
-        'path': ''
+        "value": "Tỉ lệ tử vong",
+        'path': 'statistis/dr'
       }   
     ]
   }
 
-
   infos = {
-    "parent": "Infomation",
+    "parent": "Kiến thức chung",
     "childs": [
       {
         "value": "Hiểu thêm về ung thư",
@@ -50,6 +59,7 @@ export class AppComponent {
         "value": "Lý do sưng hạch bạch huyết",
         'path': 'info/lydosunghbh'
       }
+      
     ]
   }
 

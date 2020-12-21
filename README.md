@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 to use proxy
 
-"proxyConfig": "proxy.conf.json" in "serve" part/ file angular.json
+"proxyConfig": "proxy.conf.json" in "serve.options" part/ file angular.json
