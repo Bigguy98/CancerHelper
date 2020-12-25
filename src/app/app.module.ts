@@ -20,12 +20,15 @@ import { UngthuphoiComponent } from './content/static/ungthuphoi/ungthuphoi.comp
 import { UngthuComponent } from './content/static/ungthu/ungthu.component';
 import { SurvivalMonthComponent } from './layouts/statistic/survival-month/survival-month.component';
 import { DeadRateComponent } from './layouts/statistic/dead-rate/dead-rate.component';
+import { QuestionComponent } from './layouts/ans-ques/question/question.component';
+import { QuestionDetailComponent } from './layouts/ans-ques/question-detail/question-detail.component';
+import { CreateQuesModalComponent } from './layouts/modals/create-ques-modal/create-ques-modal.component';
 
 
 const routes: Routes = [
   {
     path: "",
-    component: DashboardComponent
+    component: QuestionComponent
   },
   {
     path: "predict",
@@ -75,7 +78,10 @@ const routes: Routes = [
     UngthuphoiComponent,
     UngthuComponent,
     SurvivalMonthComponent,
-    DeadRateComponent
+    DeadRateComponent,
+    QuestionComponent,
+    QuestionDetailComponent,
+    CreateQuesModalComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -92,6 +98,7 @@ const routes: Routes = [
     })
   ],
   providers: [ToastrService, Overlay, OverlayContainer],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateQuesModalComponent]
 })
 export class AppModule { }

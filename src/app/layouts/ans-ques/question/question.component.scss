@@ -1,0 +1,72 @@
+.index{
+    height: 100%;
+    
+}
+.header{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #FFF;
+    margin-top: 20px;
+    padding:20px;
+    border-radius: 5px;
+    height: 70px;
+    cursor: pointer;
+}
+.header span{
+    opacity: 0.5;
+    padding-top: 5px;
+    font-style: italic;
+    font-size: 12px;
+}
+.header span:hover{
+    color: blue;
+}
+.content{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #FFF;
+    margin-top: 20px;
+    padding:20px;
+    border-radius: 5px;
+}
+.link{
+    color: #333333;
+}
+.icon{
+    float: left;
+}
+.avatar{
+    float: left;
+    margin-right: 5px;
+}
+h4{
+    cursor: pointer;
+}
+h6{
+    padding-top: 5px;
+}
+.text{
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.icon-comment span{
+    opacity: 0.5;
+}
+
+
+
+.key{
+    border-bottom: 1px solid #ced4da !important;
+    border-radius: 0px !important ;
+    font-size: 12px;
+}
+
+body{
+    height: 100%;
+    background-color: #dde0e2;
+}

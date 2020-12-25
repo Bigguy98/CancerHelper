@@ -1,0 +1,21 @@
+<div class="modal-content">
+      
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">ĐẶT CÂU HỎI</h4>
+      <button type="button" class="close" (click)="dismiss()">&times;</button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+     <textarea [(ngModel)]="content" name="" placeholder="Bạn muốn hỏi gì? ..." rows="2" class="form-control question"></textarea>
+     <br>
+     <textarea [(ngModel)]="hashtag"  name="" placeholder="Nhập từ khóa ..." rows="2" class="form-control key"></textarea>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="saveQuestion()">Gửi</button>
+    </div>
+    
+  </div>

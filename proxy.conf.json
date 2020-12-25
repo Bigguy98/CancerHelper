@@ -2,5 +2,9 @@
     "/py": {
       "target": "http://localhost:5000",
       "secure": false
+    },
+    "/java": {
+      "target": "http://localhost:8080/doanBackend",
+      "secure": false
     }
 }
