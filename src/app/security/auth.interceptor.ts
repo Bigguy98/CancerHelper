@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { SERVER_API_URL } from '../app.constants';
+import { JWT_TOKEN, SERVER_API_PREFIX } from '../app.constants';
 
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private localStorage: LocalStorageService, private sessionStorage: SessionStorageService) {}
+  constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!request || !request.url || (!(SERVER_API_URL && request.url.startsWith(SERVER_API_URL)))) {
+    if (!request || !request.url || (!(SERVER_API_PREFIX && request.url.startsWith(SERVER_API_PREFIX)))) {
       return next.handle(request);
     }
 
-    const token = this.localStorage.retrieve('authenticationToken') || this.sessionStorage.retrieve('authenticationToken');
+    const token = window.localStorage.getItem(JWT_TOKEN) || window.sessionStorage.getItem(JWT_TOKEN);
     if (token) {
       request = request.clone({
         setHeaders: {

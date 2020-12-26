@@ -11,7 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { DemoMaterialModule } from './layouts/material-module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Overlay, OverlayContainer, ToastrModule, ToastrService } from 'ngx-toastr';
 import { DauhieunhanbietComponent } from './content/static/dauhieunhanbiet/dauhieunhanbiet.component';
 import { HachbachhuyetComponent } from './content/static/hachbachhuyet/hachbachhuyet.component';
@@ -26,6 +26,7 @@ import { CreateQuesModalComponent } from './layouts/modals/create-ques-modal/cre
 import { LoginPageComponent } from './layouts/login-page/login-page.component';
 import { MainComponent } from './layouts/main/main.component';
 import { UserRouteAccessService } from './services/auth.service';
+import { AuthInterceptor } from './security/auth.interceptor';
 
 
 const routes: Routes = [
@@ -114,7 +115,12 @@ const routes: Routes = [
       positionClass: "toast-center-center"
     }),
   ],
-  providers: [ToastrService, Overlay, OverlayContainer],
+  providers: [ToastrService, Overlay, OverlayContainer,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent],
   entryComponents: [CreateQuesModalComponent]
 })
