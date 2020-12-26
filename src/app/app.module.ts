@@ -23,44 +23,59 @@ import { DeadRateComponent } from './layouts/statistic/dead-rate/dead-rate.compo
 import { QuestionComponent } from './layouts/ans-ques/question/question.component';
 import { QuestionDetailComponent } from './layouts/ans-ques/question-detail/question-detail.component';
 import { CreateQuesModalComponent } from './layouts/modals/create-ques-modal/create-ques-modal.component';
+import { LoginPageComponent } from './layouts/login-page/login-page.component';
+import { MainComponent } from './layouts/main/main.component';
+import { UserRouteAccessService } from './services/auth.service';
 
 
 const routes: Routes = [
+  
+  {
+    path: "login",
+    component: LoginPageComponent
+  },
   {
     path: "",
-    component: QuestionComponent
-  },
-  {
-    path: "predict",
-    component: PredictFormComponent
-  },
-  {
-    path: "info/dauhieunhanbiet",
-    component: DauhieunhanbietComponent
-  },
-  {
-    path: "info/hachbachhuyet",
-    component: HachbachhuyetComponent
-  },
-  {
-    path: "info/lydosunghbh",
-    component: LydosunghbhComponent
-  },
-  {
-    path: "info/ungthuphoi",
-    component: UngthuphoiComponent
-  },
-  {
-    path: "info/ungthu",
-    component: UngthuComponent
-  },
-  {
-    path: "statistis/sv",
-    component: SurvivalMonthComponent
-  },
-  {
-    path: "statistis/dr",
-    component: DeadRateComponent
+    component: MainComponent,
+    canActivate: [UserRouteAccessService],
+    children: [
+      {
+        path: "",
+        component: QuestionComponent
+      },
+      {
+        path: "predict",
+        component: PredictFormComponent
+      },
+      {
+        path: "info/dauhieunhanbiet",
+        component: DauhieunhanbietComponent
+      },
+      {
+        path: "info/hachbachhuyet",
+        component: HachbachhuyetComponent
+      },
+      {
+        path: "info/lydosunghbh",
+        component: LydosunghbhComponent
+      },
+      {
+        path: "info/ungthuphoi",
+        component: UngthuphoiComponent
+      },
+      {
+        path: "info/ungthu",
+        component: UngthuComponent
+      },
+      {
+        path: "statistis/sv",
+        component: SurvivalMonthComponent
+      },
+      {
+        path: "statistis/dr",
+        component: DeadRateComponent
+      }
+    ]
   }
 
 ];
@@ -81,11 +96,13 @@ const routes: Routes = [
     DeadRateComponent,
     QuestionComponent,
     QuestionDetailComponent,
-    CreateQuesModalComponent
+    CreateQuesModalComponent,
+    LoginPageComponent,
+    MainComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     DemoMaterialModule,
     NgbModule,
@@ -95,7 +112,7 @@ const routes: Routes = [
       closeButton: true,
       timeOut: 5000,
       positionClass: "toast-center-center"
-    })
+    }),
   ],
   providers: [ToastrService, Overlay, OverlayContainer],
   bootstrap: [AppComponent],

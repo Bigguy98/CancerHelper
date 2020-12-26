@@ -1,0 +1,29 @@
+<app-header (toogle)="toogle()" ></app-header>
+
+<mat-sidenav-container class="body">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav">
+    <div class="inner-container">
+
+
+      <app-nav-item
+        [parentItem] ="tools.parent"
+        [childItems] ="tools.childs"></app-nav-item>
+
+        <app-nav-item
+        [parentItem] ="statistic.parent"
+        [childItems] ="statistic.childs"></app-nav-item>
+      
+        <app-nav-item
+        [parentItem] ="infos.parent"
+        [childItems] ="infos.childs"></app-nav-item>
+
+
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

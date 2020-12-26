@@ -8,6 +8,8 @@ import { Observable, observable } from 'rxjs';
 })
 export class CommonService {
 
+    javaServerUrl = 'java-api/api';
+
     constructor(private http: HttpClient) {
     }
 
@@ -18,6 +20,10 @@ export class CommonService {
 
     getStatistic(type: string): Observable<HttpResponse<any>> {
         return this.http.get<any>(`py/api/stat?type=${type}`, { observe: "response"});
+    }
+    
+    authenticate(account: any): Observable<HttpResponse<any>> {
+        return this.http.post<any>(this.javaServerUrl + `/authenticate`, account, { observe: "response"});
     }
 
 }

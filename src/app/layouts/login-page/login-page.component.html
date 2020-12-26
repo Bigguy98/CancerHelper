@@ -1,0 +1,40 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-43">
+                    Login to continue
+                </span>
+                <br/>
+                
+                
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="username" [(ngModel)]="username">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Email</span>
+                </div>
+                
+                
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pwd" [(ngModel)]="pwd" >
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Password</span>
+                </div>
+
+                <br/>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" (click)="submitLogin()">
+                        Login
+                    </button>
+                </div>
+
+
+                
+            
+            </form>
+
+            <div class="login100-more" style="background-image: url('../../../assets/img/bg-01.jpg');">
+            </div>
+        </div>
+    </div>
+</div>
