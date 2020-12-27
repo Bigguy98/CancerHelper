@@ -57,7 +57,6 @@ export class QuestionDetailComponent implements OnInit {
 
     this.commonService.searchAnswer(params).subscribe((response: HttpResponse<any>) => {
         this.answers = (response.body && response.body.result) ? response.body.result.content : [];
-        console.log(this.answers);
     })
   }
   
@@ -70,7 +69,7 @@ export class QuestionDetailComponent implements OnInit {
     const entity = {
       "content": this.model.editorData,
       "owner": {
-        "id": 23
+        "id": this.question.owner.id
       },
       "question": {
     

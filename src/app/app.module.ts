@@ -28,6 +28,7 @@ import { MainComponent } from './layouts/main/main.component';
 import { UserRouteAccessService } from './services/auth.service';
 import { AuthInterceptor } from './security/auth.interceptor';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { AnswerComponent } from './layouts/ans-ques/answer/answer.component';
 
 
 const routes: Routes = [
@@ -104,7 +105,8 @@ const routes: Routes = [
     QuestionDetailComponent,
     CreateQuesModalComponent,
     LoginPageComponent,
-    MainComponent
+    MainComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,
