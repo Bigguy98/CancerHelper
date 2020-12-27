@@ -1,0 +1,63 @@
+body{
+    height: 100%;
+    background-color: #dde0e2;
+}
+.index{
+    height: 100%;
+}
+.content{
+    background-color: #FFF;
+    margin-top: 20px;
+    padding:20px 20px 50px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.icon{
+    float: left;
+}
+.avatar img{
+    float: left;
+    margin-right: 5px;
+}
+.avatar span{
+    opacity: 0.5;
+}
+h4{
+    cursor: pointer;
+}
+.text{
+    
+}
+.icon-comment span{
+    opacity: 0.5;
+}
+.button-cmt{
+    margin-bottom: 20px;
+}
+.btn{
+    font-weight: bold;
+    font-family: emoji;
+}
+.text-comment{
+    position: relative;
+}
+.text-comment button{
+    padding: 3px 15px 3px 15px; 
+    margin-top: 10px;
+    position: absolute;
+}
+.btn-huy{
+    right: 100px;
+}
+.btn-dang{
+    right: 20px;
+}
+.show-comment{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #FFF;
+    margin-top: 20px;
+    padding:50px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}

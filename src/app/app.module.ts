@@ -27,6 +27,7 @@ import { LoginPageComponent } from './layouts/login-page/login-page.component';
 import { MainComponent } from './layouts/main/main.component';
 import { UserRouteAccessService } from './services/auth.service';
 import { AuthInterceptor } from './security/auth.interceptor';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 const routes: Routes = [
@@ -75,7 +76,11 @@ const routes: Routes = [
       {
         path: "statistis/dr",
         component: DeadRateComponent
-      }
+      },
+      {
+        path: "question-details/:id",
+        component: QuestionDetailComponent
+      },
     ]
   }
 
@@ -114,6 +119,7 @@ const routes: Routes = [
       timeOut: 5000,
       positionClass: "toast-center-center"
     }),
+    CKEditorModule
   ],
   providers: [ToastrService, Overlay, OverlayContainer,
     {

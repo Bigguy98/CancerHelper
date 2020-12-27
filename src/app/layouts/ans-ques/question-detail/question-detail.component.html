@@ -1,1 +1,47 @@
-<p>question-detail works!</p>
+<div class="index">
+    <div class="content" *ngIf="question">
+        <h4>{{question.title}}</h4>
+        <br>
+        <div class="avatar">
+            <img src="/assets/img/avatar.png" width="35px" height="35px" />
+            <div style="position: relative;">
+                <h6>{{question.owner.fullName}} <span> đã hỏi</span></h6>
+                <span style="font-size: 11px; position: absolute;top: 20px">{{question.createdDate | date}} </span>
+            </div>
+        </div>
+        <br>
+        <p class="text">{{question.content}}
+        </p>
+        <br>
+        <div class="button-cmt">
+            <button type="text" class="btn btn-info"><i class="fa fa-pencil-square-o"></i> Trả lời</button>
+        </div>
+        <div class="text-comment">
+            <!-- editor -->
+                <ckeditor [(ngModel)] ="model.editorData" data="<p>Hello, world!</p>"></ckeditor>
+
+                <!-- <textarea [(ngModel)] ="model.editorData" data="<p>Hello, world!</p>"></textarea> -->
+
+               <button type="button" class="btn btn-danger btn-huy" (click)="clearEditorData()">Hủy</button>
+               <button type="button" class="btn btn-primary btn-dang" (click)="submitAnswer()">Đăng</button>
+        </div>
+    </div>
+    <div style="padding-left: 50px">
+        <span style="font-weight: bold">{{answers.length}} Trả lời</span>
+        <hr style="margin-top: 0px">
+    </div>
+    
+    <div class="show-comment" *ngFor="let ans of answers">
+        <div class="avatar" *ngIf="ans">
+            <img src="/assets/img/avatar.png" width="35px" height="35px" />
+            <div style="position: relative;">
+                <h6>{{ans.owner.fullName}} <span> <i class="fa fa-fa fa-circle"></i> {{ans.owner.username}}</span></h6>
+                <span style="font-size: 11px; position: absolute;top: 20px">{{ans.createdDate | date}}</span>
+                <br>
+                <p style="margin-left: 15px">
+                    {{ans.content}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -37,13 +38,24 @@ export class LoginPageComponent implements OnInit {
       "username": this.username,
       "password": this.pwd
     }).subscribe((response: any) => {
-      
       const token = response.body.id_token;
-
-      this.tokenService.saveToken(token);
-      this.router.navigate([""]);
+      if (token) {
+        
+        this.tokenService.saveToken(token);
+        this.router.navigate([""]);
+        this.getUserInfo();
+      }
+      
+    }, () => {
+      this.toastr.error("Tài khoản không tồn tại!");
     })
     
+  }
+
+  getUserInfo(): void {
+      this.commonService.getUserInfo().subscribe((response: HttpResponse<any>) => {
+        this.tokenService.saveUserInfo(JSON.stringify(response.body));
+      })
   }
 
 }

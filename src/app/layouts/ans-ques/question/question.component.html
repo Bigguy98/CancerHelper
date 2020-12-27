@@ -1,25 +1,25 @@
 <div class="index">
     <div class="header" (click)="openModal()">
         <img class="avatar" src="/assets/img/avatar.png" width="25px" height="25px" />
-        <span>Bạn có câu hỏi gì hôm nay không Nam đẹp trai? </span>
+        <span>Bạn có câu hỏi gì hôm nay không {{fullName}}? </span>
     </div>
     <div class="content" *ngFor="let question of questions">
-        <a href="content.html" class="link">
+        <a [routerLink]="['/question-details', question.id]">
             <img class="icon" src="/assets/img/icon.png" width="25px" height="25px" />
-            <h4 id="mtext">Khi nào thì bạn nhận ra mình không còn yêu một người nữa?</h4>
+            <h4 id="mtext">{{question.title}}</h4>
         </a>
         <br />
         <img class="avatar" src="/assets/img/avatar.png" width="35px" height="35px" />
-        <h6>Nguyễn Hoài Nam</h6>
+        <h6>{{question.owner.fullName}}</h6>
         <br />
         <span class="text">
             {{question.content}}
         </span>
         <br />
-        <div class="icon-comment">
+        <!-- <div class="icon-comment">
             <i class="fa fa-comments" style="color: blue;"></i>
             <span>(5) Comment...</span>
-        </div>
+        </div> -->
     </div>
 
 </div>
