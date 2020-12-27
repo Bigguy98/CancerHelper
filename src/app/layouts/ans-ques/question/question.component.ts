@@ -1,6 +1,8 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
+import { USER_INFO } from 'src/app/app.constants';
 import { CommonService } from 'src/app/services/common.service';
 import { CreateQuesModalComponent } from '../../modals/create-ques-modal/create-ques-modal.component';
 import { TokenProvider } from '../../utils/jwt-token.util';
@@ -19,25 +21,35 @@ export class QuestionComponent implements OnInit {
 
   fullName: string;
 
+  currentUserId;
+
   constructor(private modalService: NgbModal,
     private commonService: CommonService,
-    private tokenService: TokenProvider) { }
+    private tokenService: TokenProvider,
+    private toastService: ToastrService) { }
 
   ngOnInit() {
+
+
     setTimeout(() => {
       this.fullName = this.getUserFullname();
+      this.currentUserId = this.getCurrentUserID();
     }, 1000)
     this.loadData();
+
+  }
+
+  getCurrentUserID(): boolean{
+    return this.tokenService.getUserInfo()["id"];
   }
 
   getUserFullname(): string {
-    const userInfo = this.tokenService.getUserInfo();
-    return userInfo["fullName"];
+    return this.tokenService.getUserInfo()["fullName"];
   }
 
   loadData(): void {
     const params = {
-      filter: "id>0",
+      filter: "status==1",
       page: 0,
       size: 10,
       sort: ["createdDate,desc"]
@@ -48,13 +60,14 @@ export class QuestionComponent implements OnInit {
   }
 
   openModal(): void {
-    console.log("Opening modal!");
 
     this.modalRef = this.modalService.open(CreateQuesModalComponent, {
       keyboard: true,
       backdrop: 'static',
       size: 'lg'
     });
+
+    this.modalRef.componentInstance.question = "";
 
     this.modalRef.result.then(
       () => {
@@ -63,10 +76,43 @@ export class QuestionComponent implements OnInit {
         this.loadData();
       },
       () => {
-        // on modal dismiss
         console.log('modal dismiss');
       }
     );
+  }
+
+  onUpdateQuestion(question: any): void {
+    console.log(question);
+    this.modalRef = this.modalService.open(CreateQuesModalComponent, {
+      keyboard: true,
+      backdrop: 'static',
+      size: 'lg'
+    });
+    this.modalRef.componentInstance.question = question;
+
+    this.modalRef.result.then(
+      () => {
+        // on modal success
+        console.log('modal success!');
+        this.loadData();
+      },
+      () => {
+        console.log('modal dismiss');
+      }
+    );
+    
+    
+  }
+
+  onDeleteQuestion(id: number): void {
+    if(confirm("Bạn có chắc muốn xóa?")) {
+      this.commonService.deleteQuestion(id).subscribe((response: HttpResponse<any>) => {
+        if (response.body.code === 0) {
+          this.toastService.success(response.body.message);
+          this.loadData();
+        } 
+      })
+    }
   }
 
 }

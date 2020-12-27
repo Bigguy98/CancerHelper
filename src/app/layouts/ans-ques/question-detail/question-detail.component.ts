@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CommonService } from 'src/app/services/common.service';
+import { TokenProvider } from '../../utils/jwt-token.util';
 
 @Component({
   selector: 'app-question-detail',
@@ -14,7 +15,8 @@ export class QuestionDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private commonService: CommonService,
-    private toastService: ToastrService) { }
+    private toastService: ToastrService,
+    private tokenProvide: TokenProvider) { }
 
 
     qId ;
@@ -49,7 +51,7 @@ export class QuestionDetailComponent implements OnInit {
 
   loadAnswers(): void {
     const params = {
-      filter: "question.id==" + this.qId,
+      filter: "question.id==" + this.qId + ";status==1",
       page: 0,
       size: 100,
       sort: ["id,asc"]
@@ -69,12 +71,10 @@ export class QuestionDetailComponent implements OnInit {
     const entity = {
       "content": this.model.editorData,
       "owner": {
-        "id": this.question.owner.id
+        "id": this.tokenProvide.getUserInfo()["id"]
       },
       "question": {
-    
         "id": this.qId
-        
       },
       "status": 1
     }
@@ -90,5 +90,4 @@ export class QuestionDetailComponent implements OnInit {
     this.loadAnswers();
     this.clearEditorData();
   }
-
 }

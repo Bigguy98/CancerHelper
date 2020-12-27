@@ -1,5 +1,5 @@
 import { HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { CommonService } from 'src/app/services/common.service';
@@ -12,6 +12,9 @@ import { TokenProvider } from '../../utils/jwt-token.util';
 })
 export class CreateQuesModalComponent implements OnInit {
 
+  // in case update question
+  @Input() question : any;
+
   title= "";
   content= "";
   hashtag = "";
@@ -21,6 +24,12 @@ export class CreateQuesModalComponent implements OnInit {
     private tokenService: TokenProvider) { }
 
   ngOnInit() {
+
+    if (this.question) {
+      this.title = this.question.title;
+      this.content = this.question.content;
+      this.hashtag = this.question.hashtag;
+    }
   }
 
   dismiss(): void {
@@ -39,6 +48,14 @@ export class CreateQuesModalComponent implements OnInit {
       "title": this.title
     }
 
+    if (this.question) {
+      this.updateQuestion(entity, this.question.id);
+    }
+    else this.createQuestion(entity);
+
+  }
+
+  createQuestion(entity: any): void {
     this.commonService.createQuestion(entity).subscribe((response: HttpResponse<any>) => {
       if (response.body.code === 0) {
         this.toastService.success(response.body.message);
@@ -47,13 +64,24 @@ export class CreateQuesModalComponent implements OnInit {
     }, () => {
       this.toastService.info("Đã có lỗi xảy ra, vui lòng thử lại!","Error!");
     })
+  }
 
+  updateQuestion(entity: any, id: number): void {
+    this.commonService.updateQuestion(entity, id).subscribe((response: HttpResponse<any>) => {
+      if (response.body.code === 0) {
+        this.toastService.success(response.body.message);
+        this.refresh();
+      }
+    }, () => {
+      this.toastService.info("Đã có lỗi xảy ra, vui lòng thử lại!","Error!");
+    })
   }
 
   refresh(): void {
     this.title= "";
     this.content= "";
     this.hashtag = "";
+    this.question = "";
     this.activeModal.close();
   }
 

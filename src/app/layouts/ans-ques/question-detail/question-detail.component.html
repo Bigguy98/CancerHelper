@@ -32,6 +32,8 @@
     </div>
     
     <div class="show-comment" *ngFor="let ans of answers">
-        <app-answer [ans]="ans"></app-answer>
+        <app-answer [ans]="ans"
+        (trigger)="refresh()"
+        ></app-answer>
     </div>
 </div>

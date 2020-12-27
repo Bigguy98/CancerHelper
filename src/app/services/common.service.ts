@@ -15,6 +15,7 @@ export class CommonService {
     constructor(private http: HttpClient) {
     }
 
+    // python apis
 
     getPrediction(data: any): Observable<HttpResponse<any>> {
         return this.http.get<any>(`py/api/predict?data=${data}`, { observe: "response"});
@@ -23,6 +24,8 @@ export class CommonService {
     getStatistic(type: string): Observable<HttpResponse<any>> {
         return this.http.get<any>(`py/api/stat?type=${type}`, { observe: "response"});
     }
+
+    // java apis
     
     authenticate(account: any): Observable<HttpResponse<any>> {
         return this.http.post<any>(this.javaServerUrl + `/authenticate`, account, { observe: "response"});
@@ -53,6 +56,25 @@ export class CommonService {
     createQuestion(entity: any) {
         return this.http.post<any>(this.javaServerUrl + `/question/create`, entity, { observe: "response"});
     }
+
+
+    updateAnswer(entity: any, id: number) {
+        return this.http.put<any>(this.javaServerUrl + `/answer/update?id=${id}`, entity, { observe: "response"});
+    }
+
+    updateQuestion(entity: any, id: number) {
+        return this.http.put<any>(this.javaServerUrl + `/question/update?id=${id}`, entity, { observe: "response"});
+    }
+
+    deleteAnswer(id: number) {
+        return this.http.delete<any>(this.javaServerUrl + `/answer/delete?id=${id}`, { observe: "response"});
+    }
+
+    deleteQuestion(id: number) {
+        return this.http.delete<any>(this.javaServerUrl + `/question/delete?id=${id}`, { observe: "response"});
+    }
+
+
 
 
 }
