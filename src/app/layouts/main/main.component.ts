@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
     "childs": [
       {
         "value": "Dự đoán bệnh",
-        'path': 'predict'
+        'path': '/predict'
       } 
     ]
   }
@@ -28,11 +28,11 @@ export class MainComponent implements OnInit {
     "childs": [
       {
         "value": "Tháng sống sót",
-        'path': 'statistis/sv'
+        'path': '/statistis/sv'
       },
       {
         "value": "Tỉ lệ tử vong",
-        'path': 'statistis/dr'
+        'path': '/statistis/dr'
       }   
     ]
   }
@@ -42,23 +42,23 @@ export class MainComponent implements OnInit {
     "childs": [
       {
         "value": "Hiểu thêm về ung thư",
-        'path': 'info/ungthu'
+        'path': '/info/ungthu'
       },
       {
         "value": "Dấu hiệu nhận biết bệnh",
-        'path': 'info/dauhieunhanbiet'
+        'path': '/info/dauhieunhanbiet'
       },
       {
         "value": "Hiểu rõ hơn về ung thư phổi",
-        'path': 'info/ungthuphoi'
+        'path': '/info/ungthuphoi'
       },
       {
         "value": "Hạch bạch huyết",
-        'path': 'info/hachbachhuyet'
+        'path': '/info/hachbachhuyet'
       },
       {
         "value": "Lý do sưng hạch bạch huyết",
-        'path': 'info/lydosunghbh'
+        'path': '/info/lydosunghbh'
       }
       
     ]

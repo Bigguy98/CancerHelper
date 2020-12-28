@@ -9,7 +9,7 @@
 
 
 <div *ngFor="let item of childItems"  [class]="isCollapsed ? 'collapsed aio-nav-menu' : 'expanded aio-nav-menu' ">
-<a [routerLink]="[item.path]" class="vertical-menu-item level-2 ">
+<a routerLink="{{item.path}}" class="vertical-menu-item level-2 ">
   <span>{{item.value}}</span>
 </a>
 </div>
