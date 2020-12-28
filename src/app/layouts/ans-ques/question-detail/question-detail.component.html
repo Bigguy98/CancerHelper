@@ -14,11 +14,11 @@
         </p>
         <br>
         <div class="button-cmt">
-            <button type="text" class="btn btn-info"><i class="fa fa-pencil-square-o"></i> Trả lời</button>
+            <button type="text" class="btn btn-info" (click)="isCreatingAnswer=true"><i class="fa fa-pencil-square-o"></i> Trả lời</button>
         </div>
-        <div class="text-comment">
+        <div class="text-comment" [hidden]="!isCreatingAnswer">
             <!-- editor -->
-                <ckeditor [(ngModel)] ="model.editorData" data="<p>Hello, world!</p>"></ckeditor>
+                <ckeditor  [(ngModel)] ="model.editorData" data="<p>Hello, world!</p>"></ckeditor>
 
                 <!-- <textarea [(ngModel)] ="model.editorData" data="<p>Hello, world!</p>"></textarea> -->
 
@@ -36,4 +36,9 @@
         (trigger)="refresh()"
         ></app-answer>
     </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 </div>

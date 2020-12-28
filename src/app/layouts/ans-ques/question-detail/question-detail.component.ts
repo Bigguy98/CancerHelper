@@ -19,6 +19,7 @@ export class QuestionDetailComponent implements OnInit {
     private tokenProvide: TokenProvider) { }
 
 
+    isCreatingAnswer = false;
     qId ;
     model = {
       editorData: '<p>Hello, world!</p>'
@@ -64,6 +65,7 @@ export class QuestionDetailComponent implements OnInit {
   
   clearEditorData(): void {
     this.model.editorData = "";
+    this.isCreatingAnswer = false;
   }
 
   submitAnswer(): void {
