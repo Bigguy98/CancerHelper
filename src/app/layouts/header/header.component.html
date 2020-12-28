@@ -12,7 +12,7 @@
     <mat-icon>share</mat-icon>
   </button> -->
 
-  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>build_circle</mat-icon>Quản trị</button>
+  <button mat-button [matMenuTriggerFor]="menu" style="position: absolute;right: 25px;font-size: 20px;"><mat-icon class="config-btn">build_circle</mat-icon>Quản trị</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openAccountModal()">Đổi thông tin cá nhân</button>
     <button mat-menu-item (click)="logout()">Đăng xuất</button>
