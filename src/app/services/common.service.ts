@@ -74,7 +74,9 @@ export class CommonService {
         return this.http.delete<any>(this.javaServerUrl + `/question/delete?id=${id}`, { observe: "response"});
     }
 
-
+    updateUserInfo(entity: any) {
+        return this.http.put<any>(this.javaServerUrl + `/account/change`, entity, { observe: "response"});
+    }
 
 
 }

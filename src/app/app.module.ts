@@ -29,6 +29,7 @@ import { UserRouteAccessService } from './services/auth.service';
 import { AuthInterceptor } from './security/auth.interceptor';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { AnswerComponent } from './layouts/ans-ques/answer/answer.component';
+import { UpdateAccountModalComponent } from './layouts/modals/update-account-modal/update-account-modal.component';
 
 
 const routes: Routes = [
@@ -106,7 +107,8 @@ const routes: Routes = [
     CreateQuesModalComponent,
     LoginPageComponent,
     MainComponent,
-    AnswerComponent
+    AnswerComponent,
+    UpdateAccountModalComponent
   ],
   imports: [
     BrowserModule,
@@ -130,6 +132,6 @@ const routes: Routes = [
       multi: true
     }],
   bootstrap: [AppComponent],
-  entryComponents: [CreateQuesModalComponent]
+  entryComponents: [CreateQuesModalComponent, UpdateAccountModalComponent]
 })
 export class AppModule { }

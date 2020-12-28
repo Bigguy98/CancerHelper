@@ -13,7 +13,7 @@ export class TokenProvider {
         window.sessionStorage.setItem(JWT_TOKEN, token);
     }
 
-    clearToken(): void {
+    clearStorage(): void {
         if (window.localStorage.getItem(JWT_TOKEN)) {
             window.localStorage.removeItem(JWT_TOKEN);
         }
@@ -21,6 +21,15 @@ export class TokenProvider {
         if (window.sessionStorage.getItem(JWT_TOKEN)) {
             window.sessionStorage.removeItem(JWT_TOKEN);
         }
+
+        if (window.localStorage.getItem(USER_INFO)) {
+            window.localStorage.removeItem(USER_INFO);
+        }
+
+        if (window.sessionStorage.getItem(USER_INFO)) {
+            window.sessionStorage.removeItem(USER_INFO);
+        }
+
     }
 
 

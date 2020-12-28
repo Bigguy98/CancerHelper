@@ -53,9 +53,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   getUserInfo(): void {
-      this.commonService.getUserInfo().subscribe((response: HttpResponse<any>) => {
-        this.tokenService.saveUserInfo(JSON.stringify(response.body));
-      })
+    this.commonService.getUserInfo().subscribe((response: HttpResponse<any>) => {
+      this.tokenService.saveUserInfo(JSON.stringify(response.body));
+    })
   }
 
 }

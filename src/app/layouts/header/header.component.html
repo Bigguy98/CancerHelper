@@ -11,4 +11,11 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
   </button> -->
+
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>build_circle</mat-icon>Quản trị</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openAccountModal()">Đổi thông tin cá nhân</button>
+    <button mat-menu-item (click)="logout()">Đăng xuất</button>
+  </mat-menu> 
+
 </mat-toolbar>

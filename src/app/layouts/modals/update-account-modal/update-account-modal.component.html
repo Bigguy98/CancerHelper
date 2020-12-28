@@ -1,0 +1,45 @@
+<div class="modal-content">
+      
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title">ĐỔI THÔNG TIN CÁ NHÂN</h4>
+      <button type="button" class="close" (click)="dismiss()">&times;</button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Tên đầy đủ</mat-label>
+                <input matInput  [(ngModel)]="fullName" name="fullName">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput  [(ngModel)]="email" name="email">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <mat-label>Mật khẩu</mat-label>
+                <input type="password" matInput  [(ngModel)]="pwd"  name="pwd">
+            </mat-form-field>
+
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="gender"  name="gender">
+                <mat-label>Giới tính:</mat-label>
+                <mat-radio-button value="1">  Nam</mat-radio-button>
+                <mat-radio-button value="2">  Nữ</mat-radio-button>
+                <!-- <mat-radio-button *ngFor="let g of genderList" 
+                [value]="g.id" [(checked)]="g.checked">  {{g.text}}</mat-radio-button> -->
+            </mat-radio-group>
+
+        </form>
+       
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="dismiss()">Hủy</button>
+        <button type="button" class="btn btn-primary" (click)="submit()">Xác nhận</button>
+    </div>
+    
+</div>
